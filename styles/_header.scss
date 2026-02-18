@@ -1,0 +1,7 @@
+header {
+  width: 100%;
+  padding: 23px 81px;
+  @include flex(row,space-between, center);
+  background-color: $white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}
