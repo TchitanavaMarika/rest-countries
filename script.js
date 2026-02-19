@@ -20,9 +20,9 @@ async function displayCountries() {
   let finalString = ``;
 
   contries.forEach((country) => {
-    console.log(country);
+    // console.log(country);
     const template = `
- <div class="country">
+ <div class="country" id="${country.cca3}">
           <img src="${country.flags.svg}" alt="flag" />
           <div class="card-info">
             <h2>${country.name.common}</h2>
@@ -42,3 +42,11 @@ async function displayCountries() {
 }
 
 displayCountries();
+
+document.querySelector(".countries").addEventListener("click", (e) => {
+  let country = e.target.closest(".country");
+  let countryId = country.id;
+  console.log(countryId);
+
+  window.location.href = `details.html?id=${countryId}`;
+});

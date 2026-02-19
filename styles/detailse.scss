@@ -1,0 +1,105 @@
+@import "./variables";
+@import "./reset";
+@import "./mixins";
+@import "./header";
+
+main {
+  padding: 80px;
+  @media (max-width : 1288px) {
+    padding: 40px 28px;
+    
+  }
+
+  button {
+    @include flex(row, space-between, center);
+    gap: 10px;
+    padding: 10px 39px 10px 32px;
+    border-radius: 6px;
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.29);
+  }
+
+  section {
+    width: 100%;
+    min-height: 100px;
+    margin-top: 80px;
+    @include flex(row, space-between, center);
+
+    @media (max-width : 1288px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 81px;
+    }
+
+    img {
+      width: 560px;
+      height: 401px;
+      border: radius 8px;
+
+      @media(max-width : 1288px)  {
+        max-width: 100%;
+        
+      }
+    }
+
+    .details {
+      width: 574px;
+
+      @media (max-width : 1288px)  {
+        width: 100%;
+        
+      }
+     
+
+      .details-info{
+        display: flex;
+        gap: 117px;
+        margin-top: 23px;
+        margin-bottom: 70px;
+
+        @media (max-width : 1288px)  {
+            max-width: 100%;
+            flex-direction: column;
+            gap: 32px;
+            
+        }
+
+   
+
+    p{
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 32px;
+        }
+
+        span{
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 32px;
+        }
+
+      }
+      .border-countres{
+        @include flex(row,flex-start,center);
+        gap: 16px;
+
+
+        div{
+            @include flex(row,flex-start,center);
+            gap: 10px;
+
+
+            span{
+                border-radius: 2px;
+                border: 0 solid #979797;
+                background: #fff;
+                box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);  
+                padding: 5px 27px;
+            }
+        }
+      }
+    }
+   
+  }
+}
