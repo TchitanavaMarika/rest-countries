@@ -13,9 +13,12 @@ async function getCountries() {
     console.log(error);
   }
 }
+let countries = [];
+
+let filteredCountries = [];
 
 async function displayCountries() {
-  const contries = await getCountries();
+  contries = await getCountries();
 
   let finalString = ``;
 
@@ -49,4 +52,16 @@ document.querySelector(".countries").addEventListener("click", (e) => {
   console.log(countryId);
 
   window.location.href = `details.html?id=${countryId}`;
+});
+
+document.querySelector("form").addEventListener("input", (e) => {
+  e.preventDefault();
+
+  let input = document.querySelector("input").value;
+
+  filteredCountries = countries.filter((c) => {
+    return c.name.common.includes(input);
+  });
+
+  console.log(filteredCountries[0]);
 });

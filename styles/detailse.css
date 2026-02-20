@@ -142,21 +142,21 @@ main section .details .details-info span {
   font-weight: 300;
   line-height: 32px;
 }
-main section .details .border-countres {
+main section .details .border-countries {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
 }
-main section .details .border-countres div {
+main section .details .border-countries div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
 }
-main section .details .border-countres div span {
+main section .details .border-countries div span {
   border-radius: 2px;
   border: 0 solid #979797;
   background: #fff;
