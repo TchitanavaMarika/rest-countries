@@ -1,7 +1,7 @@
 async function getCountries() {
   try {
     const res = await fetch(
-      "https://restcountries.com/v3.1/all?fields=name,flags,region,population,capital,subregion,cca3"
+      "https://restcountries.com/v3.1/all?fields=name,flags,region,population,capital,subregion,cca3",
     );
     if (!res.ok) {
       throw new Error("something went wrong");
@@ -18,12 +18,38 @@ let countries = [];
 let filteredCountries = [];
 
 async function displayCountries() {
-  contries = await getCountries();
+  countries = await getCountries();
 
+  countriestoDisplay(countries);
+}
+
+displayCountries();
+
+document.querySelector(".countries").addEventListener("click", (e) => {
+  let country = e.target.closest(".country");
+  let countryId = country.id;
+  console.log(countryId);
+
+  window.location.href = `details.html?id=${countryId}`;
+  document.querySelector("#search").value = "";
+});
+
+document.querySelector("form").addEventListener("input", (e) => {
+  e.preventDefault();
+
+  let input = document.querySelector("#search").value.toLocaleLowerCase();
+
+  filteredCountries = countries.filter((c) => {
+    return c.name.common.toLocaleLowerCase().includes(input);
+  });
+
+  countriestoDisplay(filteredCountries);
+});
+
+function countriestoDisplay(data) {
   let finalString = ``;
 
-  contries.forEach((country) => {
-    // console.log(country);
+  data.forEach((country) => {
     const template = `
  <div class="country" id="${country.cca3}">
           <img src="${country.flags.svg}" alt="flag" />
@@ -44,24 +70,25 @@ async function displayCountries() {
   document.querySelector(".countries").innerHTML = finalString;
 }
 
-displayCountries();
+const themeToggle = document.querySelector("#theme-toggle");
 
-document.querySelector(".countries").addEventListener("click", (e) => {
-  let country = e.target.closest(".country");
-  let countryId = country.id;
-  console.log(countryId);
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  themeToggle.firstElementChild.classList.toggle("hidden");
+  themeToggle.lastElementChild.classList.toggle("hidden");
 
-  window.location.href = `details.html?id=${countryId}`;
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("isDark", true);
+  } else {
+    localStorage.setItem("isDark", false);
+  }
 });
 
-document.querySelector("form").addEventListener("input", (e) => {
-  e.preventDefault();
+let isdarkTheme = localStorage.getItem("isDark");
+console.log(isdarkTheme);
 
-  let input = document.querySelector("input").value;
-
-  filteredCountries = countries.filter((c) => {
-    return c.name.common.includes(input);
-  });
-
-  console.log(filteredCountries[0]);
-});
+if (isdarkTheme === "true") {
+  document.body.classList.add("dark");
+} else {
+  document.body.classList.remove("dark");
+}

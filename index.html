@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,13 +10,15 @@
   <body>
     <header>
       <h1>Where in the world?</h1>
-      <img src="./design/Group 5.svg" alt="dark-logo" />
+      <div id="theme-toggle">
+        <img src="./design/Group 5.svg" alt="dark-logo" />
+        <img class="hidden" src="./design/dark.svg" alt="dark" />
+      </div>
     </header>
     <main>
       <section class="filtering">
-
         <form>
-          <input type="text" placeholder="Search for country...">
+          <input id="search" type="text" placeholder="Search for country..." />
         </form>
       </section>
       <section class="countries"></section>

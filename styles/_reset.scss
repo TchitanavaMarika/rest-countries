@@ -13,7 +13,7 @@ body {
 }
 
 %p {
-  color:$black;
+  color: $black;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -29,7 +29,7 @@ h1 {
 }
 
 h2 {
-  color:$black;
+  color: $black;
   font-size: 18px;
   font-style: normal;
   font-weight: 800;
@@ -54,4 +54,65 @@ p {
 span {
   @extend %p;
   font-weight: 300;
+}
+
+.dark {
+  background-color: $dark-body;
+
+  header {
+    background-color: $dark-card;
+
+    h1 {
+      color: $white;
+    }
+  }
+
+  main {
+    .filtering {
+      #search {
+        color: $white;
+        background-color: $dark-card;
+      }
+
+      ::placeholder {
+        color: $white;
+      }
+    }
+
+    .countries {
+      .country {
+        background-color: $dark-card;
+        .card-info {
+          h2,
+          p,
+          span {
+            color: $white;
+          }
+        }
+      }
+    }
+
+    button {
+      background-color: $dark-card;
+      color: $white;
+    }
+
+    .details {
+      h2,
+      p,
+      span {
+        color: $white;
+      }
+
+      .border-countries {
+        span {
+          background-color: $dark-card;
+        }
+      }
+    }
+  }
+}
+
+.hidden{
+  display: none;
 }

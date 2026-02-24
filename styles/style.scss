@@ -6,15 +6,26 @@
 main {
   padding: 48px 80px;
 
+  .filtering {
+    margin-bottom: 48px;
+    #search {
+      width: 440px;
+      padding: 19px 32px;
+      border: none;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.05);
+      outline: none;
+    }
+  }
+
   .countries {
     width: 100%;
-   
+
     @include flex($justify: space-aroung);
     flex-wrap: wrap;
     row-gap: 67px;
     column-gap: 75px;
-
-
 
     .country {
       max-width: 264px;
@@ -23,7 +34,6 @@ main {
       background-color: $white;
       box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.03);
 
-      
       img {
         width: 267px;
         height: 160px;
@@ -35,7 +45,7 @@ main {
         gap: 8px;
       }
 
-      h2{
+      h2 {
         margin-bottom: 8px;
       }
     }

@@ -5,7 +5,7 @@ let countryId = urlObj.get("id");
 async function getDetails() {
   try {
     const res = await fetch(
-      `https://restcountries.com/v3.1/alpha/${countryId}?fields=name,flags,population,region,subregion,capital,tld,currencies,languages,borders`
+      `https://restcountries.com/v3.1/alpha/${countryId}?fields=name,flags,population,region,subregion,capital,tld,currencies,languages,borders`,
     );
 
     if (!res.ok) {
@@ -68,3 +68,26 @@ async function displayDetales() {
 }
 
 displayDetales();
+
+const themeToggle = document.querySelector("#theme-toggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  themeToggle.firstElementChild.classList.toggle("hidden");
+  themeToggle.lastElementChild.classList.toggle("hidden");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("isDark", true);
+  } else {
+    localStorage.setItem("isDark", false);
+  }
+});
+
+let isdarkTheme = localStorage.getItem("isDark");
+console.log(isdarkTheme);
+
+if (isdarkTheme === "true") {
+  document.body.classList.add("dark");
+} else {
+  document.body.classList.remove("dark");
+}

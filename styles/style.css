@@ -49,6 +49,50 @@ span {
   font-weight: 300;
 }
 
+.dark {
+  background-color: #202c36;
+}
+.dark header {
+  background-color: #2B3844;
+}
+.dark header h1 {
+  color: #fff;
+}
+.dark main .filtering #search {
+  color: #fff;
+  background-color: #2B3844;
+}
+.dark main .filtering ::-moz-placeholder {
+  color: #fff;
+}
+.dark main .filtering ::placeholder {
+  color: #fff;
+}
+.dark main .countries .country {
+  background-color: #2B3844;
+}
+.dark main .countries .country .card-info h2,
+.dark main .countries .country .card-info p,
+.dark main .countries .country .card-info span {
+  color: #fff;
+}
+.dark main button {
+  background-color: #2B3844;
+  color: #fff;
+}
+.dark main .details h2,
+.dark main .details p,
+.dark main .details span {
+  color: #fff;
+}
+.dark main .details .border-countries span {
+  background-color: #2B3844;
+}
+
+.hidden {
+  display: none;
+}
+
 header {
   width: 100%;
   padding: 23px 81px;
@@ -67,6 +111,18 @@ header {
 
 main {
   padding: 48px 80px;
+}
+main .filtering {
+  margin-bottom: 48px;
+}
+main .filtering #search {
+  width: 440px;
+  padding: 19px 32px;
+  border: none;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.05);
+  outline: none;
 }
 main .countries {
   width: 100%;
