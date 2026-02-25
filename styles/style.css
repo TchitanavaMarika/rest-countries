@@ -123,6 +123,13 @@ main .filtering {
   justify-content: space-between;
   align-items: center;
 }
+@media (max-width: 700px) {
+  main .filtering {
+    flex-direction: column;
+    align-items: start;
+    gap: 25px;
+  }
+}
 main .filtering #searchcontinent {
   padding: 18px 24px;
   padding-right: 50px;
@@ -153,6 +160,11 @@ main .filtering #search {
   box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.05);
   outline: none;
   border-radius: 5px;
+}
+@media (max-width: 700px) {
+  main .filtering #search {
+    width: 330px;
+  }
 }
 main .countries {
   width: 100%;

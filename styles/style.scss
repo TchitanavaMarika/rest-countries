@@ -6,9 +6,15 @@
 main {
   padding: 48px 80px;
 
- .filtering {
+  .filtering {
     margin-bottom: 48px;
     @include flex(row, space-between, center);
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+      align-items: start;
+      gap: 25px;
+    }
 
     #searchcontinent {
       padding: 18px 24px;
@@ -43,6 +49,10 @@ main {
       box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.05);
       outline: none;
       border-radius: 5px;
+
+      @media (max-width: 700px) {
+        width: 330px;
+      }
     }
   }
 
