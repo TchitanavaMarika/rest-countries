@@ -74,21 +74,48 @@ const themeToggle = document.querySelector("#theme-toggle");
 
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
-  themeToggle.firstElementChild.classList.toggle("hidden");
-  themeToggle.lastElementChild.classList.toggle("hidden");
 
   if (document.body.classList.contains("dark")) {
     localStorage.setItem("isDark", true);
+    themeToggle.firstElementChild.classList.add("hidden");
+    themeToggle.lastElementChild.classList.remove("hidden");
   } else {
     localStorage.setItem("isDark", false);
+    themeToggle.firstElementChild.classList.remove("hidden");
+    themeToggle.lastElementChild.classList.add("hidden");
   }
 });
 
 let isdarkTheme = localStorage.getItem("isDark");
-console.log(isdarkTheme);
 
 if (isdarkTheme === "true") {
   document.body.classList.add("dark");
-} else {
+  themeToggle.firstElementChild.classList.add("hidden");
+  themeToggle.lastElementChild.classList.remove("hidden");
+} else if (isdarkTheme === "false") {
   document.body.classList.remove("dark");
+  themeToggle.firstElementChild.classList.remove("hidden");
+  themeToggle.lastElementChild.classList.add("hidden");
 }
+
+// Select the <select> element
+let select = document.querySelector("#searchcontinent");
+
+// Listen for changes
+select.addEventListener("change", function () {
+  console.log(this.value);
+
+  filteredCountries = countries.filter((country) => {
+    if (this.value === "all") {
+      return countries;
+    }
+    return country.region.toLowerCase() === this.value;
+  });
+  countriestoDisplay(filteredCountries);
+});
+
+//window.addEventListener("pageshow", (event) => {
+//if (event.persisted) {
+// applyTheme();
+//}
+//});

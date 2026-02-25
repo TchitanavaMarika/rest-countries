@@ -11,14 +11,25 @@
     <header>
       <h1>Where in the world?</h1>
       <div id="theme-toggle">
-        <img src="./design/Group 5.svg" alt="dark-logo" />
-        <img class="hidden" src="./design/dark.svg" alt="dark" />
+        <img src="./design/darklogo.svg" alt="logo" />
+        <img class="hidden" src="./design/whitelogo.svg" alt="dark" />
       </div>
     </header>
     <main>
       <section class="filtering">
         <form>
           <input id="search" type="text" placeholder="Search for country..." />
+        </form>
+
+        <form class="filteredbyregion">
+          <select id="searchcontinent">
+            <option value="all">All regions</option>
+            <option value="africa">Africa</option>
+            <option value="americas">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+          </select>
         </form>
       </section>
       <section class="countries"></section>

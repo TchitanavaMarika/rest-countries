@@ -58,6 +58,10 @@ span {
 .dark header h1 {
   color: #fff;
 }
+.dark main .filtering #searchcontinent {
+  background-color: #2B3844;
+  color: #fff;
+}
 .dark main .filtering #search {
   color: #fff;
   background-color: #2B3844;

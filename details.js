@@ -73,13 +73,15 @@ const themeToggle = document.querySelector("#theme-toggle");
 
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
-  themeToggle.firstElementChild.classList.toggle("hidden");
-  themeToggle.lastElementChild.classList.toggle("hidden");
 
   if (document.body.classList.contains("dark")) {
     localStorage.setItem("isDark", true);
+    themeToggle.firstElementChild.classList.add("hidden");
+    themeToggle.lastElementChild.classList.remove("hidden");
   } else {
     localStorage.setItem("isDark", false);
+    themeToggle.firstElementChild.classList.remove("hidden");
+    themeToggle.lastElementChild.classList.add("hidden");
   }
 });
 
@@ -88,6 +90,14 @@ console.log(isdarkTheme);
 
 if (isdarkTheme === "true") {
   document.body.classList.add("dark");
-} else {
+  themeToggle.firstElementChild.classList.add("hidden");
+  themeToggle.lastElementChild.classList.remove("hidden");
+} else if (isdarkTheme === "false") {
   document.body.classList.remove("dark");
+  themeToggle.firstElementChild.classList.remove("hidden");
+  themeToggle.lastElementChild.classList.add("hidden");
 }
+
+document.querySelector("button").addEventListener("click", () => {
+  window.location.href = `index.html`;
+});
